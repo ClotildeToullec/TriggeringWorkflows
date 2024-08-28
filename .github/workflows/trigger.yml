@@ -5,8 +5,10 @@ on: push
 jobs:
   trigger:
     name: Repository Dispatch
-    uses: peter-evans/repository-dispatch@v3
-    with:
-      token: ${{ secrets.PAT }}
-      repository: ClotildeToullec/TestingWorkflows
-      event-type: dependency_trigger
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ClotildeToullec/TestingWorkflows
+          event-type: dependency_trigger
